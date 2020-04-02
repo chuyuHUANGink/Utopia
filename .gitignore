@@ -1,0 +1,21 @@
+# Ignore .DS_Store files
+*.DS_Store
+
+# Ignore .pyc files
+*.pyc
+
+# Ignore db.sqlite3 file
+db.sqlite3
+
+# Ignore .db files
+*.db
+
+# Ignore .key files
+*.key
+
+# Ignore all files in the migrations folder but the __init__.py
+tailored_project/tailored/migrations/**
+!tailored_project/tailored/migrations/__init__.py
+
+# Ignore all folders named __pycache__
+__pycache__/

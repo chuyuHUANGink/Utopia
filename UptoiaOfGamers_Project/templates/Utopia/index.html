@@ -1,0 +1,59 @@
+{% extends 'utopia/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %} 
+Homepage.
+{% endblock %}
+
+{% block body_block %}
+      <h1> Utopia Of Gamers</h1>
+      {% if user.is_authenticated %}
+        Good day, dear user {{ user.username }}!
+      {% else %}
+        Hi, visitor!
+      {% endif %}
+      <strong>{{ Gamecategory }}</strong>
+      {% if Gamecategories %}
+          <ul>
+            {% for Gamecategory in Gamecategories %}
+            <li>
+               <a href="/rango/category/{{ category.slug }}/">{{ Gamecategory.name }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+      {% else %}
+           <strong>There are no Gamecategories present.</strong>
+		   		   
+      {% endif %}
+        <hr>
+	    <h1>Most Liked games</h1>
+		 {%if games %}
+		 <ul>
+		    {% for game in games %}
+			<li>
+				<a href="{{ game.url }}">{{ game.title }}</a>
+			<li>	
+            {% endfor %}
+		 <ul>	
+		 {% else %}
+           <strong>There is no gamess present.</strong>
+         {% endif %}
+		 
+		<hr>
+		<h1>Hottest news</h1>
+		 {%if news %}
+		 <ul>
+		    {% for new in news %}
+			<li>
+				<a href="{{ new.url }}">{{ new.title }}</a>
+			<li>	
+            {% endfor %}
+		 <ul>	
+		 {% else %}
+           <strong>There is no news present.</strong>
+         {% endif %}
+		 
+		 
+		 
+{% endblock %}				 
+         
